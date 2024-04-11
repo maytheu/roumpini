@@ -1,5 +1,8 @@
-import { createSchema } from 'graphql-yoga';
-import _ from 'lodash';
+import { createSchema } from "graphql-yoga";
+import _ from "lodash";
+import { bookingTypeDef } from "./schemas/booking.schema.js";
+import { authTypeDef } from "./schemas/auth.schema.js";
+import { userTypeDef } from "./schemas/user.schema.js";
 
 const queries = /* GraphQL */ `
   type Query {
@@ -9,11 +12,11 @@ const queries = /* GraphQL */ `
 
 const resolvers = {
   Query: {
-    hello: () => 'Hello from Yoga!',
+    hello: () => "Hello from Yoga!",
   },
 };
 
 export const schema = createSchema({
-  typeDefs: [queries, ],
+  typeDefs: [authTypeDef, bookingTypeDef, userTypeDef, queries],
   resolvers: _.merge(resolvers),
 });
