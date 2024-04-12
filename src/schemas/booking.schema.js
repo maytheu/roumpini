@@ -1,6 +1,6 @@
 export const bookingTypeDef = /* GraphQL */ `
   type Query {
-    bookings: [Booking!]!
+    bookings(params: ParamsInput): [Booking!]!
     booking(id: String!): Booking
   }
 
@@ -11,15 +11,15 @@ export const bookingTypeDef = /* GraphQL */ `
 
   type Booking {
     id: String!
-    dateTime: String
+    date_time: String
     location: String
     status: BookingStatus
     note: String
-    serviceType: ServiceType
+    service_type: String
   }
 
   input NewBookingInput {
-    dateTime: String!
+    dateTime: DateTime!
     location: String!
     note: String
     serviceType: ServiceType!
@@ -34,6 +34,11 @@ export const bookingTypeDef = /* GraphQL */ `
     serviceType: ServiceType
   }
 
+  input ParamsInput {
+    page: Int
+    limit: Int
+  }
+
   enum BookingStatus {
     Pending
     Confirmed
@@ -42,7 +47,9 @@ export const bookingTypeDef = /* GraphQL */ `
   }
 
   enum ServiceType {
-    MedicalConsultation
-    PhysicalTherapySession
+    Medical_Consultation
+    Physical_Therapy_Session
   }
+
+  scalar DateTime
 `;

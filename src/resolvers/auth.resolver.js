@@ -3,7 +3,7 @@ import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import { createToken } from "../utils/util.js";
 
-export const authResolvers = {
+export const authResolver = {
   Mutation: {
     signup: async (_, { input }) => {
       try {
@@ -18,7 +18,7 @@ export const authResolvers = {
         const userData = new User({ email, name, password: hashpassword });
         const token = createToken(userData._id);
         await userData.save();
-        return { ...userData._doc, token };
+        return { id: userData._doc._id, ...userData._doc, token };
       } catch (error) {
         throw new GraphQLError(error.message);
       }
@@ -42,10 +42,10 @@ export const authResolvers = {
         }
 
         const token = createToken(user._id);
-        return { ...user._doc, token };
+        return { id: user._id, ...user._doc, token };
       } catch (error) {
         throw new GraphQLError(error.message);
       }
     },
   },
-};
+}; 

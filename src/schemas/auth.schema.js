@@ -5,6 +5,7 @@ export const authTypeDef = /* GraphQL */ `
   }
 
   type UserWithToken {
+    id: String
     name: String
     email: String
     token: String!

@@ -1,13 +1,13 @@
 export const userTypeDef = /* GraphQL */ `
   type Query {
-    user: User
+    patient: Patient
   }
 
   type Mutation {
-    updateUser(input: UpdateUserInput!): User
+    updatePatient(input: UpdatePatientInput!): Patient
   }
 
-  type User {
+  type Patient {
     id: String
     name: String
     email: String
@@ -16,11 +16,11 @@ export const userTypeDef = /* GraphQL */ `
   }
 
   enum Gender {
-    MALE
-    FEMALE
+    Male
+    Female
   }
 
-  input UpdateUserInput {
+  input UpdatePatientInput {
     name: String
     email: String
     gender: Gender
