@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "pm2 start server.js -i max",
+    "stop": "pm2 stop",
     "watch": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

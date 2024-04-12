@@ -12,4 +12,5 @@ copy sample.env to .env
 `mv sample.env .env`
 
 start the app
-`./deploy.sh`
+`chmod +x deploy.sh
+./deploy.sh`
