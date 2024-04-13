@@ -6,7 +6,6 @@ git pull origin
 
 npm install
 
-npm run stop
 
 npm start
 
